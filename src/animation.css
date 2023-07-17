@@ -1,0 +1,79 @@
+.fade-in-header {
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out forwards;
+}
+
+.fade-in-about {
+  opacity: 0;
+  animation: fadeIn 3s ease-in-out forwards;
+  animation-delay: 2s;
+}
+
+.fade-in-projects {
+  opacity: 0;
+  animation: fadeIn 3s ease-in-out forwards;
+  animation-delay: 2.5s;
+}
+.fade-in-blog {
+  opacity: 0;
+  animation: fadeIn 3s ease-in-out forwards;
+  animation-delay: 3s;
+}
+
+.fade-in-misc {
+  opacity: 0;
+  animation: fadeIn 3s ease-in-out forwards;
+  animation-delay: 3.5s;
+}
+
+.fade-in-contact {
+  opacity: 0;
+  animation: fadeIn 3s ease-in-out forwards;
+  animation-delay: 2.5s;
+}
+
+.fade-in-email {
+  opacity: 0;
+  animation: fadeIn 3s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
+
+.fade-in-github {
+  opacity: 0;
+  animation: fadeIn 3s ease-in-out forwards;
+  animation-delay: 1s;
+}
+
+.fade-in-linkedin {
+  opacity: 0;
+  animation: fadeIn 3s ease-in-out forwards;
+  animation-delay: 1.5s;
+}
+
+.fade-in-calendly {
+  opacity: 0;
+  animation: fadeIn 3s ease-in-out forwards;
+  animation-delay: 2s;
+}
+.fade-in-jumbo {
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
