@@ -3,6 +3,31 @@
   animation: fadeIn 2s ease-in-out forwards;
 }
 
+.fade-in-body {
+  opacity: 0;
+  animation: fadeIn 3s ease-in-out forwards;
+  animation-delay: 1s;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
 .fade-in-about {
   opacity: 0;
   animation: fadeIn 3s ease-in-out forwards;

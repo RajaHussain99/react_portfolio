@@ -6,7 +6,6 @@ function AboutPage() {
   return (
     <>
       <About />;
-      <Footer />
     </>
   );
 }

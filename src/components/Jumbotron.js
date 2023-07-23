@@ -1,14 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./../App.css";
 import "@fortawesome/fontawesome-free/css/all.css";
 import "./../animation.css";
 
 const Jumbotron = () => {
   const [isJumbotronOpen, setIsJumbotronOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const toggleJumbotron = () => {
     setIsJumbotronOpen((prevIsOpen) => !prevIsOpen);
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <div>
@@ -20,8 +33,8 @@ const Jumbotron = () => {
       </button>
 
       {isJumbotronOpen && (
-        <div className="fade-in-jumbo fixed inset-0 mx-auto p-80 items-center justify-center transition-opacity duration-2000">
-          <div className="bg-black text-white p-4 rounded-lg max-w-sm mx-auto relative">
+        <div className="fade-in-jumbo fixed inset-20 mx-auto p-20 items-center justify-center transition-opacity duration-2000">
+          <div className="bg-black text-white p-4 rounded-lg max-w-sm mx-auto relative min-jumbotron-width">
             <button
               onClick={toggleJumbotron}
               className="absolute top-0 right-0 p-2 text-white"
@@ -44,40 +57,52 @@ const Jumbotron = () => {
             <div className="flex flex-col items-center mt-8">
               <div className="flex flex-col space-y-4">
                 <a
-                  href="mailto:your-email@example.com"
-                  className="fade-in-email flex items-center justify-center bg-black text-white py-2 px-4 rounded-lg hover:bg-gray-800"
+                  href="rhussain@umd.edu@example.com"
+                  className={`fade-in-email flex items-center justify-center bg-black text-white py-2 px-4 rounded-lg hover:bg-gray-800`}
                 >
-                  {/* <i className="fas fa-envelope text-xl mr-2"></i> */}
-                  {/* <div className="jumbo-quotes">"</div> */}
-                  <span className="jumbo-text">EMAIL</span>
-                  {/* <div className="jumbo-quotes">"</div> */}
+                  <div
+                    className={`jumbo-text-container ${
+                      windowWidth <= 640 ? "text-xs" : "text-base"
+                    }`}
+                  >
+                    EMAIL
+                  </div>
                 </a>
                 <a
-                  href="https://github.com/your-github-username"
-                  className="fade-in-github flex items-center justify-center bg-gray text-white py-2 px-4 rounded-lg hover:bg-gray-800"
+                  href="https://github.com/RajaHussain99"
+                  className={`fade-in-github flex items-center justify-center bg-gray text-white py-2 px-4 rounded-lg hover:bg-gray-800`}
                 >
-                  {/* <i className="fab fa-github text-xl mr-2"></i> */}
-                  {/* <div className="jumbo-quotes">" </div> */}
-                  <span className="jumbo-text"> GITHUB </span>
-                  {/* <div className="jumbo-quotes"> "</div> */}
+                  <div
+                    className={`jumbo-text-container ${
+                      windowWidth <= 640 ? "text-xs" : "text-base"
+                    }`}
+                  >
+                    GITHUB
+                  </div>
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/your-linkedin-username"
-                  className="fade-in-linkedin flex items-center justify-center bg-gray text-white py-2 px-4 rounded-lg hover:bg-gray-800"
+                  href="https://www.linkedin.com/in/rajashussain"
+                  className={`fade-in-linkedin flex items-center justify-center bg-gray text-white py-2 px-4 rounded-lg hover:bg-gray-800`}
                 >
-                  {/* <i className="fab fa-linkedin-in text-xl mr-2"></i> */}
-                  {/* <div className="jumbo-quotes">" </div> */}
-                  <span className="jumbo-text">LINKEDIN</span>
-                  {/* <div className="jumbo-quotes"> "</div> */}
+                  <div
+                    className={`jumbo-text-container ${
+                      windowWidth <= 640 ? "text-xs" : "text-base"
+                    }`}
+                  >
+                    LINKEDIN
+                  </div>
                 </a>
                 <a
                   href="https://calendly.com/your-calendly-username"
-                  className="fade-in-calendly flex items-center justify-center bg-gray text-white py-2 px-4 rounded-lg hover:bg-gray-800"
+                  className={`fade-in-calendly flex items-center justify-center bg-gray text-white py-2 px-4 rounded-lg hover:bg-gray-800`}
                 >
-                  {/* <i className="far fa-calendar-alt text-xl mr-2"></i> */}
-                  {/* <div className="jumbo-quotes">"</div> */}
-                  <span className="jumbo-text">CALENDLY</span>
-                  {/* <div className="jumbo-quotes">"</div> */}
+                  <div
+                    className={`jumbo-text-container ${
+                      windowWidth <= 640 ? "text-xs" : "text-base"
+                    }`}
+                  >
+                    CALENDLY
+                  </div>
                 </a>
               </div>
             </div>
