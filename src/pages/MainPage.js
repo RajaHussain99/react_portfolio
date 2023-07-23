@@ -11,13 +11,14 @@ import ScrollArrow from "../components/arrow/arrow";
 import Sankyu from "../fonts/Sankyu.ttf";
 import "../fonts/fonts.css";
 function MainPage() {
+  const videoUrl = process.env.PUBLIC_URL + "/videos/Render_2.mp4";
   return (
     <>
       <div className="mx-auto max-w-2xl">
         <div className="mx-auto max-w-2xl p-10"></div>
         {/* <div className="mx-auto max-w-lg items-center justify-center"> */}
         {/* <div className="mx-auto max-w-2xl items-center justify-center"> */}
-        <video src="/videos/Render_2.mp4" autoPlay loop muted />
+        <video src={videoUrl} autoPlay loop muted />
         {/* </div> */}
         {/* <ScrollArrow /> */}
 
