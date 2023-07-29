@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./../App.css";
-import "@fortawesome/fontawesome-free/css/all.css";
 import "./../animation.css";
 
 const Jumbotron = () => {

@@ -7,7 +7,6 @@ import Footer from "../components/footer/Footer";
 import line from "../assets/line.png";
 import Jumbotron from "../components/Jumbotron";
 import exampleImage from "../assets/construction.png";
-import ScrollArrow from "../components/arrow/arrow";
 import VideoPlayer from "../components/video/VideoPlayer";
 import Sankyu from "../fonts/Sankyu.ttf";
 import "../fonts/fonts.css";
