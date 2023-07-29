@@ -26,7 +26,6 @@ const VideoPlayer = ({ videoUrl }) => {
         muted
         playsInline
         preload="metadata" 
-        loop
       >
         <source src={videoUrl} type="video/mp4" />
         {/* Add additional source elements for other formats if needed */}
