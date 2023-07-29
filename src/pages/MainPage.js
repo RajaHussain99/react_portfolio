@@ -8,17 +8,20 @@ import line from "../assets/line.png";
 import Jumbotron from "../components/Jumbotron";
 import exampleImage from "../assets/construction.png";
 import ScrollArrow from "../components/arrow/arrow";
+import VideoPlayer from "../components/video/VideoPlayer";
 import Sankyu from "../fonts/Sankyu.ttf";
 import "../fonts/fonts.css";
 function MainPage() {
   const videoUrl = process.env.PUBLIC_URL + "/videos/Render_2.mp4";
+  //const gifUrl = process.env.PUBLIC_URL + "/videos/Friday_3.gif";
   return (
     <>
       <div className="mx-auto max-w-2xl">
         <div className="mx-auto max-w-2xl p-10"></div>
         {/* <div className="mx-auto max-w-lg items-center justify-center"> */}
         {/* <div className="mx-auto max-w-2xl items-center justify-center"> */}
-        <video src={videoUrl} autoPlay loop muted />
+        {/* <video src={videoUrl} autoPlay loop muted /> */}
+        <VideoPlayer videoUrl={videoUrl} />
         {/* </div> */}
         {/* <ScrollArrow /> */}
 
@@ -74,7 +77,7 @@ function MainPage() {
             </h2>
           </div>
         </Link> */}
-        <div className="mx-auto p-20"></div>
+
         <div className="mx-auto max-w-2xl p-10">
           <Footer />
         </div>
