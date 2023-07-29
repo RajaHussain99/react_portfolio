@@ -24,7 +24,7 @@ const VideoPlayer = ({ videoUrl }) => {
         ref={videoRef}
         autoPlay
         muted
-        loop
+        playsInline
       >
         <source src={videoUrl} type="video/mp4" />
         {/* Add additional source elements for other formats if needed */}
