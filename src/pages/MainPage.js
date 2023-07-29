@@ -11,7 +11,7 @@ import VideoPlayer from "../components/video/VideoPlayer";
 import Sankyu from "../fonts/Sankyu.ttf";
 import "../fonts/fonts.css";
 function MainPage() {
-  const videoUrl = process.env.PUBLIC_URL + "/videos/Render_2.mp4";
+  const videoUrl = process.env.PUBLIC_URL + "/videos/Render_3.mp4";
   //const gifUrl = process.env.PUBLIC_URL + "/videos/Friday_3.gif";
   return (
     <>
