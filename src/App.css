@@ -63,6 +63,12 @@ h2::after {
   justify-content: center;
 }
 
+@keyframes cursor-blink {
+  0% {
+    opacity: 0;
+  }
+}
+
 h2 {
   color: #3f3c3c;
   font-family: sans-serif;
