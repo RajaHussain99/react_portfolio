@@ -16,9 +16,7 @@ function MainPage() {
   return (
     <>
       <div className="mx-auto max-w-2xl">
-        {/* <div className="mx-auto max-w-2xl p-10"></div> */}
-        {/* <div className="mx-auto max-w-lg items-center justify-center"> */}
-        {/* <div className="mx-auto max-w-2xl items-center justify-center"> */}
+
         {/* <video src={videoUrl} autoPlay loop muted /> */}
         <div className="mx-auto max-w-2xl">
         <VideoPlayer videoUrl={videoUrl} />
