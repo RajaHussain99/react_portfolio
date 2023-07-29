@@ -16,20 +16,6 @@ const VideoPlayer = ({ videoUrl }) => {
             console.error('Video playback error:', error);
           });
       }
-  
-      // Add event listener to loop the video when it ends
-      videoRef.current.addEventListener('ended', () => {
-        videoRef.current.currentTime = 0;
-        videoRef.current.play();
-      });
-  
-      // Clean up the event listener when the component unmounts
-      return () => {
-        videoRef.current.removeEventListener('ended', () => {
-          videoRef.current.currentTime = 0;
-          videoRef.current.play();
-        });
-      };
     }, []);
 
   return (
@@ -38,6 +24,7 @@ const VideoPlayer = ({ videoUrl }) => {
         ref={videoRef}
         autoPlay
         muted
+        loop
         playsInline
         preload="metadata" 
       >
