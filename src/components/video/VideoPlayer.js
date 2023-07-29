@@ -7,16 +7,30 @@ const VideoPlayer = ({ videoUrl }) => {
     const playPromise = videoRef.current.play();
 
     if (playPromise !== undefined) {
-      playPromise
-        .then(_ => {
-          // Autoplay started successfully (no user interaction required).
-        })
-        .catch(error => {
-          // Autoplay was prevented or not supported.
-          console.error('Video playback error:', error);
+        playPromise
+          .then(_ => {
+            // Autoplay started successfully (no user interaction required).
+          })
+          .catch(error => {
+            // Autoplay was prevented or not supported.
+            console.error('Video playback error:', error);
+          });
+      }
+  
+      // Add event listener to loop the video when it ends
+      videoRef.current.addEventListener('ended', () => {
+        videoRef.current.currentTime = 0;
+        videoRef.current.play();
+      });
+  
+      // Clean up the event listener when the component unmounts
+      return () => {
+        videoRef.current.removeEventListener('ended', () => {
+          videoRef.current.currentTime = 0;
+          videoRef.current.play();
         });
-    }
-  }, []);
+      };
+    }, []);
 
   return (
 
