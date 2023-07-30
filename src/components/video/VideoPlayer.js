@@ -8,7 +8,7 @@ const VideoPlayer = ({ videoUrl }) => {
 
     if (playPromise !== undefined) {
         playPromise
-          .then(_ => {
+          .then(() => {
             // Autoplay started successfully (no user interaction required).
           })
           .catch(error => {
