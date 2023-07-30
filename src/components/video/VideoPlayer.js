@@ -25,7 +25,7 @@ const VideoPlayer = ({ videoUrl }) => {
         autoPlay
         muted
         loop
-        playsInline
+        //playsInline
         preload="metadata" 
       >
         <source src={videoUrl} type="video/mp4" />
