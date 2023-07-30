@@ -209,3 +209,9 @@ footer {
     font-size: 70px; /* Font size for screens larger than 1280px */
   }
 }
+
+.video-container {
+  display: flex;
+  justify-content: center; /* Aligns content horizontally */
+  align-items: center; /* Aligns content vertically */
+}
