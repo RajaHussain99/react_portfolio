@@ -12,7 +12,7 @@ const VideoPlayer = ({ videoUrl }) => {
             // Autoplay started successfully (no user interaction required).
           })
           .catch(error => {
-            // Autoplay was prevented or not supported.
+            // Autoplay was prevented or not supported
             console.error('Video playback error:', error);
           });
       }
