@@ -1,39 +1,56 @@
 import React from "react";
 import "../../App.css";
 import { Link } from "react-router-dom";
-import image from "../../assets/construction.png";
 import Footer from "../footer/Footer";
 import "../../animation.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
+import ProjectCard from "./ProjectCard";
+import "./projectCard.css";
 
 function Projects() {
+  const projects = [
+    {
+      id: 1,
+      title: "Follic",
+      description:
+        "AI-powered hair loss assessment tool that analyzes patterns, connects users with nearby clinics, and enables progress tracking over time.",
+      tags: ["AI", "React", "Healthcare"],
+      link: null,
+      image: "/projects/follic.png",
+    },
+  ];
+
   return (
     <>
-      {/* <div className="mx-auto p-20"></div> */}
+      <div className="mx-auto max-w-4xl p-10 items-center justify-center">
+        <h2 className="fade-in-header page-title" style={{ marginTop: "0" }}>
+          PROJECTS
+        </h2>
 
-      <div className="mx-auto max-w-2xl p-10 items-center justify-center">
-        {/* <h1>projects</h1> */}
+        <p className="about fade-in-body text-center" style={{ marginBottom: "2rem" }}>
+          A collection of things I've built.{" "}
+          <a href="https://github.com/RajaHussain99" className="github-link">
+            View my Github
+          </a>{" "}
+          for more.
+        </p>
 
-        <div className="justify-center items-center">
-          <p className="about fade-in-body font_8 wixui-rich-text__text">
-            cooking up...
-          </p>
-          <br />
-          <p className="about fade-in-about font_8 wixui-rich-text__text">
-            meanwhile, checkout my{" "}
-            <a href="https://github.com/RajaHussain99" className="github-link">
-              Github
-            </a>
-            .
-          </p>
-          <div className="flex justify-center items-center p-10">
-            <div className="w-20 h-20 border-t-4 border-black-500 border-solid rounded-full animate-spin"></div>
-          </div>
+        <div className="projects-grid fade-in-about">
+          {projects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              title={project.title}
+              description={project.description}
+              tags={project.tags}
+              link={project.link}
+              image={project.image}
+            />
+          ))}
         </div>
+
         <div className="mx-auto p-10"></div>
-        <div className="mx-auto p-5"></div>
-        <div className="mx-auto p-40"></div>
+
         <Link to="/">
           <div className="mx-auto">
             <h4>

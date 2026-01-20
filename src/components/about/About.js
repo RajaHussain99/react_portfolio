@@ -1,57 +1,68 @@
 import React from "react";
 import "../../App.css";
 import "../../animation.css";
+import "./about.css";
 import { Link } from "react-router-dom";
 import Footer from "../footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
-import Sankyu from "../../fonts/Sankyu.ttf";
 
 function About() {
+  const titles = [
+    "Senior Software Engineer",
+    "AWS SME",
+    "DevOps-Driven",
+    "Building AI Products",
+  ];
+
   return (
     <>
-      {/* <div className="mx-auto p-20"></div> */}
+      <div className="mx-auto max-w-2xl p-10 items-center justify-center about-container">
 
-      <div className="mx-auto max-w-2xl p-10 items-center justify-center">
-        {/* <h1 style={{ fontFamily: "Sankyu" }}>about me</h1> */}
-        <p className="about fade-in-body font_8 wixui-rich-text__text">
-          I'm Raja, a software engineer based out of Washington D.C. Previously,
-          I went to the{" "}
-          <a href="https://www.rhsmith.umd.edu/" className="github-link">
-            University of Maryland - College Park
-          </a>
-          , picking up a bachelors in Information Systems, while doing a lot of{" "}
-          <a
-            href="http://www.vimtechllc.com.s3-website-us-east-1.amazonaws.com"
-            className="github-link"
-          >
-            cool things along the way
-          </a>
-          . As an engineer trying to level up, I experiment making, and breaking
-          things via{" "}
-          <Link to="/Projects">
-            <u className="github-link">my current projects</u>.
-          </Link>
-          {/* . In addition, I'm exploring my creative side by putting together a{" "}
-          <Link to="/Blog">
-            <u>tech blog</u>
-          </Link>
-          , alongside a few{" "}
-          <Link to="/Misc">
-            <u>other things</u>
-          </Link>
-          . */}
+        {/* Title Tags */}
+        <div className="title-tags fade-in-header">
+          {titles.map((title, index) => (
+            <span key={index} className="title-tag">
+              {title}
+            </span>
+          ))}
+        </div>
+
+        {/* Headline */}
+        <p className="about-headline fade-in-body">
+          I design and ship scalable cloud systems and AI-powered products end-to-end — from architecture to production.
         </p>
-        <br></br>
-        <p className="about fade-in-about font_8 wixui-rich-text__text">
-          I have limited social media at the moment, but I can be found on
-          LinkedIn{" "}
-          <a href="https://github.com/RajaHussain99" className="github-link">
-            here
-          </a>
-          .{" "}
-        </p>
-        <div className="mx-auto p-20"></div>
+
+        {/* Experience Section */}
+        <div className="experience-section fade-in-about">
+          <div className="experience-item">
+            <span className="experience-bullet">→</span>
+            <span>6+ years building distributed systems on AWS</span>
+          </div>
+          <div className="experience-item">
+            <span className="experience-bullet">→</span>
+            <span>Strong DevOps background (Docker, CI/CD, observability, infra automation)</span>
+          </div>
+          <div className="experience-item">
+            <span className="experience-bullet">→</span>
+            <span>Experienced in high-scale data pipelines (Spark, Snowflake, Databricks)</span>
+          </div>
+        </div>
+
+        {/* Tech Stack */}
+        <div className="tech-section fade-in-about">
+          <div className="tech-row">
+            <span className="tech-label">Tech</span>
+            <span className="tech-items">Python, Node.js, React, SQL, PySpark | AWS, Docker | PostgreSQL, DynamoDB, MongoDB</span>
+          </div>
+          <div className="tech-row">
+            <span className="tech-label">LLM APIs</span>
+            <span className="tech-items">OpenAI, Claude, Gemini, Bedrock (Llama, Mistral)</span>
+          </div>
+        </div>
+
+        <div className="mx-auto p-16"></div>
+
         <Link to="/">
           <div className="mx-auto">
             <h4>
@@ -61,7 +72,7 @@ function About() {
             </h4>
           </div>
         </Link>
-        <br></br>
+        <br />
         <Footer />
       </div>
     </>

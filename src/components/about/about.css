@@ -1,0 +1,139 @@
+/* About Page Resume Styles */
+
+.about-container {
+  text-align: center;
+}
+
+/* Title badges/tags */
+.title-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.title-tag {
+  background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+  color: #fff;
+  padding: 0.5rem 1.25rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: "Helvetica Neue", sans-serif;
+  letter-spacing: 0.3px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.title-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Headline statement */
+.about-headline {
+  font-size: 1.35rem;
+  color: #2a2a2a;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+}
+
+/* Experience bullets section */
+.experience-section {
+  background: #fafafa;
+  border-left: 3px solid #333;
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  text-align: left;
+}
+
+.experience-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.5;
+}
+
+.experience-item:last-child {
+  margin-bottom: 0;
+}
+
+.experience-bullet {
+  color: #333;
+  font-weight: bold;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* Tech stack section */
+.tech-section {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e5e5e5;
+}
+
+.tech-row {
+  margin-bottom: 1.25rem;
+  text-align: left;
+}
+
+.tech-label {
+  display: inline-block;
+  background: #f0f0f0;
+  color: #333;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-right: 0.75rem;
+  min-width: 80px;
+  text-align: center;
+}
+
+.tech-items {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* Divider */
+.about-divider {
+  width: 60px;
+  height: 3px;
+  background: #333;
+  margin: 2rem auto;
+  border-radius: 2px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .title-tags {
+    gap: 0.5rem;
+  }
+
+  .title-tag {
+    font-size: 0.8rem;
+    padding: 0.4rem 1rem;
+  }
+
+  .about-headline {
+    font-size: 1.15rem;
+  }
+
+  .experience-section {
+    padding: 1rem 1.25rem;
+  }
+
+  .experience-item {
+    font-size: 0.95rem;
+  }
+
+  .tech-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    width: fit-content;
+  }
+}

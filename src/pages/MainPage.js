@@ -27,11 +27,9 @@ function MainPage() {
         <div className="mx-auto ">
           <Link to="/About">
             <div className="fade-in-about mx-auto max-w-lg p-20">
-              <h2 style={{ fontFamily: "Sankyu" }}>
+              <h2 className="page-title">
                 <div className="section">
-                  {/* <div className="quotes">"</div> */}
                   ABOUT
-                  {/* <div className="quotes">"</div> */}
                 </div>
               </h2>
             </div>
@@ -39,11 +37,19 @@ function MainPage() {
 
           <Link to="/Projects">
             <div className="fade-in-projects mx-auto max-w-lg p-10">
-              <h2 style={{ fontFamily: "Sankyu" }}>
+              <h2 className="page-title">
                 <div className="section">
-                  {/* <div className="quotes">"</div> */}
                   PROJECTS
-                  {/* <div className="quotes">"</div> */}
+                </div>
+              </h2>
+            </div>
+          </Link>
+
+          <Link to="/Photography">
+            <div className="fade-in-photography mx-auto max-w-lg p-10">
+              <h2 className="page-title">
+                <div className="section">
+                  TRAVELS
                 </div>
               </h2>
             </div>
