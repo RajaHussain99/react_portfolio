@@ -1,39 +1,46 @@
 import React from "react";
-import "./projectCard.css";
 
 function ProjectCard({ title, description, tags, link, image }) {
-  const CardContent = () => (
-    <div className="project-card">
-      {image && (
-        <div className="project-card-image">
-          <img src={image} alt={title} />
-        </div>
-      )}
-      <div className="project-card-content">
-        <h3 className="project-card-title">{title}</h3>
-        <p className="project-card-description">{description}</p>
-        {tags && tags.length > 0 && (
-          <div className="project-card-tags">
-            {tags.map((tag, index) => (
-              <span key={index} className="project-tag">
-                {tag}
-              </span>
-            ))}
+  const CardWrapper = ({ children }) => {
+    if (link) {
+      return (
+        <a href={link} target="_blank" rel="noopener noreferrer" className="block">
+          {children}
+        </a>
+      );
+    }
+    return <div>{children}</div>;
+  };
+
+  return (
+    <CardWrapper>
+      <div className="card">
+        {image && (
+          <div className="aspect-[4/3] overflow-hidden bg-gray-100">
+            <img
+              src={image}
+              alt={title}
+              className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+              style={{ objectPosition: 'center 60%' }}
+            />
           </div>
         )}
+        <div className="p-6">
+          <h3 className="mb-2">{title}</h3>
+          <p className="text-sm mb-4">{description}</p>
+          {tags && tags.length > 0 && (
+            <div className="flex flex-wrap gap-2">
+              {tags.map((tag, index) => (
+                <span key={index} className="tag">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </CardWrapper>
   );
-
-  if (link) {
-    return (
-      <a href={link} target="_blank" rel="noopener noreferrer" className="project-card-link">
-        <CardContent />
-      </a>
-    );
-  }
-
-  return <CardContent />;
 }
 
 export default ProjectCard;

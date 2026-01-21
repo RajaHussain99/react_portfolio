@@ -1,93 +1,42 @@
 import React from "react";
-import "./../App.css";
-import "./../animation.css";
+import "../App.css";
+import "../animation.css";
 import { Link } from "react-router-dom";
-import About from "../components/about/About";
 import Footer from "../components/footer/Footer";
-import line from "../assets/line.png";
-import Jumbotron from "../components/Jumbotron";
-import exampleImage from "../assets/construction.png";
 import VideoPlayer from "../components/video/VideoPlayer";
-import Sankyu from "../fonts/Sankyu.ttf";
-import "../fonts/fonts.css";
+
 function MainPage() {
   const videoUrl = process.env.PUBLIC_URL + "/videos/Render_3.mp4";
-  //const gifUrl = process.env.PUBLIC_URL + "/videos/Friday_3.gif";
+
   return (
-    <>
-      <div className="mx-auto max-w-2xl">
-
-        {/* <video src={videoUrl} autoPlay loop muted /> */}
-        <div className="mx-auto max-w-2xl">
-        <VideoPlayer videoUrl={videoUrl} />
-        </div>
-        {/* </div> */}
-        {/* <ScrollArrow /> */}
-
-        <div className="mx-auto ">
-          <Link to="/About">
-            <div className="fade-in-about mx-auto max-w-lg p-20">
-              <h2 className="page-title">
-                <div className="section">
-                  ABOUT
-                </div>
-              </h2>
-            </div>
-          </Link>
-
-          <Link to="/Projects">
-            <div className="fade-in-projects mx-auto max-w-lg p-10">
-              <h2 className="page-title">
-                <div className="section">
-                  PROJECTS
-                </div>
-              </h2>
-            </div>
-          </Link>
-
-          <Link to="/Photography">
-            <div className="fade-in-photography mx-auto max-w-lg p-10">
-              <h2 className="page-title">
-                <div className="section">
-                  TRAVELS
-                </div>
-              </h2>
-            </div>
-          </Link>
-
-          {/* <Link to="/Blog">
-          <div className="fade-in-blog mx-auto max-w-lg p-10">
-            <h2>
-              <div className="section">BLOG</div>
-            </h2>
-          </div>
-        </Link>
-
-        <Link to="/Misc">
-          <div className="fade-in-misc mx-auto max-w-lg p-10">
-            <h2>
-              <div className="section">MISC</div>
-            </h2>
-          </div>
-        </Link> */}
+    <div className="min-h-screen flex flex-col">
+      <main className="flex-1 container-narrow py-16">
+        {/* Logo/Video */}
+        <div className="fade-in-header flex justify-center mb-16">
+          <VideoPlayer videoUrl={videoUrl} />
         </div>
 
-        {/* <Link to="/Contact">
-          <div className="fade-in-contact mx-auto max-w-lg p-20">
-            <h2>
-              <div className="section">
-                <div className="quotes">"</div>CONTACT
-                <div className="quotes">"</div>
-              </div>
-            </h2>
-          </div>
-        </Link> */}
+        {/* Navigation Links */}
+        <nav className="flex flex-col items-center gap-8">
+          <Link to="/About" className="fade-in-about">
+            <span className="nav-link">About</span>
+          </Link>
 
-        <div className="mx-auto max-w-2xl p-10">
+          <Link to="/Projects" className="fade-in-projects">
+            <span className="nav-link">Projects</span>
+          </Link>
+
+          <Link to="/Photography" className="fade-in-photography">
+            <span className="nav-link">Travels</span>
+          </Link>
+        </nav>
+
+        {/* Footer */}
+        <div className="fade-in-footer mt-24">
           <Footer />
         </div>
-      </div>
-    </>
+      </main>
+    </div>
   );
 }
 

@@ -1,81 +1,81 @@
 import React from "react";
 import "../../App.css";
 import "../../animation.css";
-import "./about.css";
 import { Link } from "react-router-dom";
 import Footer from "../footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 function About() {
-  const titles = [
-    "Senior Software Engineer",
-    "AWS SME",
-    "DevOps-Driven",
-    "Building AI Products",
+  const expertise = [
+    "6+ years building distributed systems on AWS",
+    "Strong DevOps background — Docker, CI/CD, observability, infra automation",
+    "Experienced in high-scale data pipelines — Spark, Snowflake, Databricks",
   ];
 
+  const techStack = {
+    Core: "Python, Node.js, React, SQL, PySpark",
+    Infrastructure: "AWS, Docker, PostgreSQL, DynamoDB, MongoDB",
+    "AI/LLM": "OpenAI, Claude, Gemini, Bedrock",
+  };
+
   return (
-    <>
-      <div className="mx-auto max-w-2xl p-10 items-center justify-center about-container">
+    <div className="min-h-screen flex flex-col">
+      <main className="flex-1 container-narrow py-16">
+        {/* Back Link */}
+        <Link to="/" className="fade-in-header inline-flex items-center gap-2 mb-12 nav-link">
+          <FontAwesomeIcon icon={faArrowLeft} size="sm" />
+          <span>Back</span>
+        </Link>
 
         {/* Title Tags */}
-        <div className="title-tags fade-in-header">
-          {titles.map((title, index) => (
-            <span key={index} className="title-tag">
-              {title}
-            </span>
-          ))}
+        <div className="fade-in-header flex flex-wrap gap-3 mb-8">
+          {["Senior Software Engineer", "AWS SME", "DevOps", "AI Products"].map(
+            (tag, i) => (
+              <span key={i} className="tag">
+                {tag}
+              </span>
+            )
+          )}
         </div>
 
         {/* Headline */}
-        <p className="about-headline fade-in-body">
-          I design and ship scalable cloud systems and AI-powered products end-to-end — from architecture to production.
-        </p>
+        <h1 className="fade-in-body mb-8" style={{ lineHeight: 1.3 }}>
+          I design and ship scalable cloud systems and AI-powered products — from architecture to production.
+        </h1>
 
-        {/* Experience Section */}
-        <div className="experience-section fade-in-about">
-          <div className="experience-item">
-            <span className="experience-bullet">→</span>
-            <span>6+ years building distributed systems on AWS</span>
-          </div>
-          <div className="experience-item">
-            <span className="experience-bullet">→</span>
-            <span>Strong DevOps background (Docker, CI/CD, observability, infra automation)</span>
-          </div>
-          <div className="experience-item">
-            <span className="experience-bullet">→</span>
-            <span>Experienced in high-scale data pipelines (Spark, Snowflake, Databricks)</span>
-          </div>
+        {/* Expertise */}
+        <div className="fade-in-about mb-12">
+          <ul className="space-y-3">
+            {expertise.map((item, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <span className="text-gray-400 mt-1">—</span>
+                <p>{item}</p>
+              </li>
+            ))}
+          </ul>
         </div>
 
         {/* Tech Stack */}
-        <div className="tech-section fade-in-about">
-          <div className="tech-row">
-            <span className="tech-label">Tech</span>
-            <span className="tech-items">Python, Node.js, React, SQL, PySpark | AWS, Docker | PostgreSQL, DynamoDB, MongoDB</span>
-          </div>
-          <div className="tech-row">
-            <span className="tech-label">LLM APIs</span>
-            <span className="tech-items">OpenAI, Claude, Gemini, Bedrock (Llama, Mistral)</span>
+        <div className="fade-in-projects">
+          <div className="border-t border-gray-200 pt-8">
+            {Object.entries(techStack).map(([label, items], i) => (
+              <div key={i} className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 mb-4">
+                <span className="text-xs uppercase tracking-wider text-gray-500 sm:w-24 shrink-0">
+                  {label}
+                </span>
+                <p className="text-sm">{items}</p>
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className="mx-auto p-16"></div>
-
-        <Link to="/">
-          <div className="mx-auto">
-            <h4>
-              <div className="section">
-                <FontAwesomeIcon icon={faHome} size="lg" />
-              </div>
-            </h4>
-          </div>
-        </Link>
-        <br />
-        <Footer />
-      </div>
-    </>
+        {/* Footer */}
+        <div className="fade-in-footer">
+          <Footer />
+        </div>
+      </main>
+    </div>
   );
 }
 

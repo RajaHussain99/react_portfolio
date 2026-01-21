@@ -1,12 +1,11 @@
 import React from "react";
 import "../../App.css";
+import "../../animation.css";
 import { Link } from "react-router-dom";
 import Footer from "../footer/Footer";
-import "../../animation.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import ProjectCard from "./ProjectCard";
-import "./projectCard.css";
 
 function Projects() {
   const projects = [
@@ -22,21 +21,33 @@ function Projects() {
   ];
 
   return (
-    <>
-      <div className="mx-auto max-w-4xl p-10 items-center justify-center">
-        <h2 className="fade-in-header page-title" style={{ marginTop: "0" }}>
-          PROJECTS
-        </h2>
+    <div className="min-h-screen flex flex-col">
+      <main className="flex-1 container py-16">
+        {/* Back Link */}
+        <Link to="/" className="fade-in-header inline-flex items-center gap-2 mb-12 nav-link">
+          <FontAwesomeIcon icon={faArrowLeft} size="sm" />
+          <span>Back</span>
+        </Link>
 
-        <p className="about fade-in-body text-center" style={{ marginBottom: "2rem" }}>
-          A collection of things I've built.{" "}
-          <a href="https://github.com/RajaHussain99" className="github-link">
-            View my Github
-          </a>{" "}
-          for more.
-        </p>
+        {/* Header */}
+        <div className="fade-in-header section-header">
+          <h2 className="section-title">Projects</h2>
+          <p className="section-subtitle">
+            things I've built.{" "}
+            <a
+              href="https://github.com/RajaHussain99"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-underline"
+            >
+              see github
+            </a>{" "}
+            for more.
+          </p>
+        </div>
 
-        <div className="projects-grid fade-in-about">
+        {/* Projects Grid */}
+        <div className="fade-in-body grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project) => (
             <ProjectCard
               key={project.id}
@@ -49,21 +60,12 @@ function Projects() {
           ))}
         </div>
 
-        <div className="mx-auto p-10"></div>
-
-        <Link to="/">
-          <div className="mx-auto">
-            <h4>
-              <div className="section">
-                <FontAwesomeIcon icon={faHome} size="lg" />
-              </div>
-            </h4>
-          </div>
-        </Link>
-        <br />
-        <Footer />
-      </div>
-    </>
+        {/* Footer */}
+        <div className="fade-in-footer">
+          <Footer />
+        </div>
+      </main>
+    </div>
   );
 }
 

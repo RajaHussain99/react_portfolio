@@ -2,241 +2,326 @@
 @tailwind components;
 @tailwind utilities;
 
-/* html {
-  --section-background-color: linear-gradient(
-    to bottom left,
-    rgba(238, 238, 238, 1),
-    rgba(238, 238, 238, 1)
-  );
-} */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap');
+
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  color: #1a1a1a;
+  margin: 0;
+}
 
 h1 {
-  color: #000000;
-  white-space: nowrap;
-  font-size: 60px;
-  font-family: sans-serif;
-  margin-top: -100px;
-  text-align: center;
-}
-
-.jumbo-quotes {
-  font-family: "Futura";
-  color: #f5f0f0;
-  display: inline;
-  font-size: 20px;
-}
-
-/* .jumbo-text {
-  font-family: sans-serif;
-  display: inline;
-  color: #f5f0f0;
-  font-size: 20px;
-} */
-.github-link {
-  color: #000000;
-  text-decoration: underline;
-}
-
-h1::after {
-  content: "";
-  width: 6px;
-  height: 60px;
-  color: #000000;
-  background: #000000;
-  display: inline-block;
-  animation: cursor-blink 1.5s steps(2) infinite;
-}
-
-h2::after {
-  content: "";
-  width: 3px;
-  height: 38px;
-  color: #000000;
-  background: #000000;
-  display: inline-block;
-  animation: cursor-blink 1.5s steps(2) infinite;
-}
-.main {
-  align-items: center;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-}
-
-@keyframes cursor-blink {
-  0% {
-    opacity: 0;
-  }
+  font-size: clamp(2.5rem, 5vw, 4rem);
 }
 
 h2 {
-  color: #3f3c3c;
-  font-family: sans-serif;
-  font-size: 40px;
-  margin-top: -100px;
-  text-align: center;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
 }
 
-h4 {
-  color: #000000;
-  font-size: 30px;
-  font-family: "Helvetica Neue Bold";
-  margin-top: -100px;
-  text-align: center;
+h3 {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
 }
 
 p {
-  color: #726e6e;
-  font-size: 18px;
-  font-family: "Helvetica Neue Bold";
-  text-align: left;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #4a4a4a;
+  margin: 0;
 }
 
-.img {
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+/* ============================================
+   LAYOUT
+   ============================================ */
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.container-narrow {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+
+.nav-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #1a1a1a;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  opacity: 1;
+  color: #666;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.875rem 2rem;
+  border: 1px solid #1a1a1a;
+  background: transparent;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #1a1a1a;
+  color: #f6f1f1;
+}
+
+.btn-filled {
+  background: #1a1a1a;
+  color: #f6f1f1;
+}
+
+.btn-filled:hover {
+  background: #333;
+}
+
+/* ============================================
+   SECTIONS
+   ============================================ */
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  color: #666;
+  font-size: 1.05rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+
+.card {
+  background: #fff;
+  border-radius: 2px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  margin-top: 4rem;
 }
 
-.main-text {
-  text-align: center;
-  font-size: 20px;
-  white-space: nowrap;
-}
-h2 .quotes {
-  font-family: "Futura";
-  color: #423c3c;
-  font-size: 60px;
-  margin-top: -100px;
-  display: inline;
-}
-.section {
-  display: inline;
+.footer-text {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: #888;
+  text-transform: uppercase;
 }
 
-.flex-col {
-  display: flex;
-  flex-direction: column;
-}
+/* ============================================
+   UTILITIES
+   ============================================ */
 
-footer {
-  margin-top: auto;
-}
-
-.min-jumbotron-width {
-  min-width: 100px;
-}
-
-.jumbtron {
-  display: inline;
-}
-.section:hover::before {
-  transform: scale(1.1);
-  box-shadow: 0 0 15px #1f6a95;
-}
-
-.section:hover {
-  transition: all 0.3s ease-out;
-  color: #9a8f8f;
-  transition: 250ms;
-  text-shadow: #9a8f8f;
-}
-
-.footer {
-  text-align: center;
-  display: inline;
-}
-
-.footer:hover {
-  transition: all 0.3s ease-out;
-  color: #242424;
-  transition: 250ms;
-  text-shadow: #070606;
-}
-
-.fade-enter {
-  opacity: 0;
-}
-
-.fade-enter-active {
-  opacity: 1;
-  transition: opacity 1s ease-in-out;
-}
-
-.fade-exit {
-  opacity: 1;
-}
-
-.fade-exit-active {
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-
-.about {
-  font-size: 25px;
-}
-
-@media (min-width: 768px) {
-  h1 {
-    font-size: 50px; /* Font size for screens larger than 768px */
-  }
-}
-
-@media (min-width: 1024px) {
-  h1 {
-    font-size: 80px; /* Font size for screens larger than 1024px */
-  }
-}
-
-@media (min-width: 1280px) {
-  h1 {
-    font-size: 120px; /* Font size for screens larger than 1280px */
-  }
-}
-
-@media (min-width: 860px) {
-  h2 {
-    font-size: 50px; /* Font size for screens larger than 768px */
-  }
-}
-
-@media (min-width: 1024px) {
-  h2 {
-    font-size: 60px; /* Font size for screens larger than 1024px */
-  }
-}
-
-@media (min-width: 1280px) {
-  h2 {
-    font-size: 70px; /* Font size for screens larger than 1280px */
-  }
-}
-
-.video-container {
-  display: flex;
-  justify-content: center; /* Aligns content horizontally */
-  align-items: center; /* Aligns content vertically */
-}
-
-/* Utility classes */
 .text-center {
   text-align: center;
 }
 
-/* Page titles - clean modern font */
-.page-title {
-  font-family: "Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-weight: 300;
-  letter-spacing: 0.15em;
+.text-left {
+  text-align: left;
 }
 
-/* Page header styling for Projects and Photography pages */
-.page-header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+.mb-6 { margin-bottom: 3rem; }
 
-.page-subtitle {
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+.mt-6 { margin-top: 3rem; }
+
+/* ============================================
+   HOME ICON
+   ============================================ */
+
+.home-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
   color: #666;
-  font-size: 1.1rem;
-  max-width: 600px;
-  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+.home-link:hover {
+  border-color: #1a1a1a;
+  color: #1a1a1a;
+  opacity: 1;
+}
+
+/* ============================================
+   VIDEO/LOGO
+   ============================================ */
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ============================================
+   MODAL/OVERLAY
+   ============================================ */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background: #fff;
+  padding: 3rem;
+  max-width: 400px;
+  width: 90%;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+  color: #1a1a1a;
+}
+
+/* ============================================
+   TAGS
+   ============================================ */
+
+.tag {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  background: #f0f0f0;
+  color: #555;
+  border-radius: 2px;
+  transition: background 0.2s ease;
+}
+
+.tag:hover {
+  background: #e5e5e5;
+}
+
+/* ============================================
+   LINK STYLES
+   ============================================ */
+
+.link-underline {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.link-underline:hover {
+  opacity: 0.7;
 }
