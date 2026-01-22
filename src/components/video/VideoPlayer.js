@@ -19,20 +19,20 @@ const VideoPlayer = ({ videoUrl }) => {
     }, []);
 
   return (
-
       <video
         ref={videoRef}
         autoPlay
         muted
         loop
-        //playsInline
-        preload="metadata" 
+        playsInline
+        disablePictureInPicture
+        controlsList="nodownload nofullscreen noremoteplayback"
+        preload="metadata"
+        style={{ pointerEvents: 'none' }}
       >
         <source src={videoUrl} type="video/mp4" />
-        {/* Add additional source elements for other formats if needed */}
         Your browser does not support the video tag.
       </video>
-
   );
 };
 
